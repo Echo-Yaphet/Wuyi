@@ -1,0 +1,65 @@
+<view class="reader-page {{nightMode ? 'night' : ''}}">
+  <!-- 顶部栏 -->
+  <view class="reader-header">
+    <view class="left" bindtap="goBack">返回</view>
+    <view class="title" wx:if="{{book.title}}">{{book.title}}</view>
+    <view class="right" bindtap="toggleChapterPanel">章节</view>
+  </view>
+
+  <!-- 元信息 -->
+  <view class="meta" wx:if="{{book.title}}">
+    <view class="row">
+      <text class="m-title">{{book.title}}</text>
+    </view>
+    <view class="row">
+      <text class="m-author">{{book.author}} 著</text>
+      <text class="m-badge">{{book.dynasty}}</text>
+      <text class="m-year">{{book.year}}年</text>
+    </view>
+    <view class="row small">第 {{chapterIndex + 1}} / {{chapters.length}} 章</view>
+  </view>
+
+  <!-- 章节选择抽屉 -->
+  <view class="chapter-panel" wx:if="{{showChapters}}">
+    <view class="panel-hd">
+      <text>目录</text>
+      <text class="close" bindtap="toggleChapterPanel">关闭</text>
+    </view>
+    <scroll-view scroll-y class="chapter-scroll">
+      <block wx:for="{{chapters}}" wx:key="id">
+        <view class="chapter-item {{index===chapterIndex?'active':''}}"
+              bindtap="jumpToChapter"
+              data-index="{{index}}">
+          第{{index+1}}章 · {{item.title}}
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 内容区（富文本） -->
+  <scroll-view scroll-y class="content-scroll"
+               scroll-top="{{scrollTop}}"
+               lower-threshold="40"
+               bindscrolltoupper="handleScrollTop"
+               bindscrolltolower="handleScrollBottom">
+    <view class="content"
+          style="font-size: {{fontSize}}rpx; line-height: {{lineHeight}};">
+      <rich-text nodes="{{currentContent}}"></rich-text>
+    </view>
+  </scroll-view>
+
+  <!-- 底部工具栏 -->
+  <view class="toolbar">
+    <view class="tool" bindtap="toggleChapterPanel">章节</view>
+    <view class="tool" bindtap="zoomOut">A-</view>
+    <view class="tool" bindtap="zoomIn">A+</view>
+    <view class="tool" bindtap="toggleNight">{{nightMode ? '日间' : '夜间'}}</view>
+    <view class="tool" bindtap="saveBookmark">书签</view>
+  </view>
+
+  <!-- 上/下一章 -->
+  <view class="pager">
+    <button class="btn" bindtap="prevChapter" disabled="{{chapterIndex===0}}">上一章</button>
+    <button class="btn" bindtap="nextChapter" disabled="{{chapterIndex===chapters.length-1}}">下一章</button>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "吴门医派",
+  "usingComponents": {
+    "ec-canvas": "/assets/ec-canvas/ec-canvas"
+  }
+}

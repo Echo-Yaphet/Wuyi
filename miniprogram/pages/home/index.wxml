@@ -1,0 +1,52 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <image src="/assets/icon/search.png" class="scan-icon" />
+    <input placeholder="搜索古籍、理论、病例..." />
+  </view>
+
+  <!-- 中医古籍模块 -->
+  <view class="book-section">
+    <view class="book-title">中医古籍</view>
+    <image src="/assets/icon/book-banner.jpg" class="book-banner" mode="aspectFill" />
+    <view class="banner-overlay"></view>
+    <view class="book-text">
+      <text class="title">探索传统中医智慧</text>
+      <text class="desc">数字化呈现珍贵医学典籍</text>
+    </view>
+  </view>
+
+  <!-- 功能宫格 -->
+  <view class="grid-row">
+    <view  class="grid-item" bindtap="goBooks" hover-class="grid-item-hover">
+      <image src="/assets/icon/book.png" class="grid-icon" />
+      <text class="grid-text">古籍展示</text>
+    </view>
+    <view  class="grid-item" bindtap="goKnowledge" hover-class="grid-item-hover">
+      <image src="/assets/icon/knowledgeGraph.png" class="grid-icon" />
+      <text class="grid-text">知识图谱</text>
+    </view>
+    <view  class="grid-item" bindtap="goKnowledge" hover-class="grid-item-hover">
+      <image src="/assets/icon/qa.png" class="grid-icon" />
+      <text class="grid-text">智能问答</text>
+    </view>
+  </view>
+
+  <!-- 大家都在看 -->
+  <view class="hot-section">
+    <view class="hot-header">
+      <text class="hot-title">大家都在看</text>
+    </view>
+    <scroll-view class="hot-list" scroll-x>
+      <block wx:for="{{hotBooks}}" wx:key="id">
+        <view class="hot-card" bindtap="goRead" data-id="{{item.id}}">
+          <image class="hot-cover" src="{{item.cover}}" mode="aspectFill" />
+          <view class="hot-info">
+            <text class="hot-name">{{item.name}}</text>
+            <text class="hot-meta">{{item.author}}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

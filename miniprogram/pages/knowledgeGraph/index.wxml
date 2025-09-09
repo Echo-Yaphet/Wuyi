@@ -1,0 +1,117 @@
+<view class="container">
+  <!-- ===== 知识图谱（标题 + 缩放按钮 + 可拖拽缩放画布） ===== -->
+  <view class="kg-section">
+    <view class="kg-header">
+      <text class="kg-title">吴门医派知识图谱</text>
+    </view>
+
+    <view class="kg-wrap">
+      <!-- 悬浮按钮 -->
+      <view class="kg-fab">
+        <view class="kg-fab-item" bindtap="zoomOut" hover-class="fab-hover">
+          <image src="/assets/icon/zoom-out.png" class="kg-icon" />
+        </view>
+        <view class="kg-fab-item" bindtap="zoomIn" hover-class="fab-hover">
+          <image src="/assets/icon/zoom-in.png" class="kg-icon" />
+        </view>
+        <view class="kg-fab-item" bindtap="resetKG" hover-class="fab-hover">
+          <image src="/assets/icon/refresh.png" class="kg-icon" />
+        </view>
+      </view>
+
+      <!-- 拖拽缩放区域：把原图片换成 ECharts 画布 -->
+      <movable-area class="kg-area">
+        <movable-view class="kg-view" direction="all" inertia damping="30" friction="20" scale scale-min="{{kgScaleMin}}" scale-max="{{kgScaleMax}}" scale-value="{{kgScaleValue}}" bindscale="onKgScale" x="{{kgX}}" y="{{kgY}}">
+          <!-- ✅ ECharts 画布（懒加载） -->
+          <ec-canvas id="kg-ec" class="kg-canvas" canvas-id="kg-canvas" ec="{{ec}}"></ec-canvas>
+        </movable-view>
+      </movable-area>
+    </view>
+  </view>
+
+  <!-- ===== 智能问答 ===== -->
+  <view class="qa-section">
+    <view class="qa-title">
+      智能问答
+      <image class="qa-menu" src="/assets/icon/menu.png" bindtap="toggleSider" />
+    </view>
+
+    <!-- 覆盖抽屉：历史会话 -->
+    <view wx:if="{{showSider}}" class="sider-overlay" catchtouchmove="noop" bindtap="hideSider">
+      <view class="sider-panel" catchtap="noop">
+        <view class="sider-header">
+          <view class="sider-title">历史会话</view>
+          <view class="sider-actions">
+            <view class="sider-btn" bindtap="onNewSession" hover-class="fab-hover">新建</view>
+            <view class="sider-btn ghost" bindtap="hideSider">关闭</view>
+          </view>
+        </view>
+
+        <scroll-view class="sider-scroll" scroll-y>
+          <block wx:for="{{sessions}}" wx:key="id">
+            <view class="sider-item {{item.id===activeSessionId?'active':''}}" bindtap="onPickSession" data-id="{{item.id}}">
+              <view class="sider-name text-ellipsis">{{item.title}}</view>
+              <view class="sider-tools" catchtap="noop">
+                <view class="tool" bindtap="onRenameSession" data-id="{{item.id}}">改</view>
+                <view class="tool danger" bindtap="onDeleteSession" data-id="{{item.id}}">删</view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+
+    <!-- ===== 聊天主区 ===== -->
+    <view class="qa-layout">
+      <view class="qa-main">
+        <!-- wxParse 模板（一次 import 即可） -->
+        <import src="/wxParse/wxParse.wxml" />
+
+        <scroll-view class="qa-list" scroll-y scroll-with-animation scroll-into-view="{{scrollToId}}">
+          <block wx:for="{{messages}}" wx:key="id">
+            <view id="msg-{{item.id}}" class="qa-item {{item.role === 'user' ? 'user' : 'ai'}}">
+              <view class="qa-bubble-wrap {{item.role}}">
+                <view wx:if="{{item.role==='ai'}}" class="tail tail-left"></view>
+
+                <view class="qa-bubble {{item.role}}">
+                  <!-- 用户消息：纯文本 -->
+                  <block wx:if="{{item.role==='user'}}">
+                    <text class="qa-text">{{item.display || item.text}}</text>
+                  </block>
+                  <!-- AI 消息：Markdown 渲染 -->
+                  <block wx:if="{{item.role==='ai'}}">
+                    <template is="wxParse" data="{{wxParseData:item.parsed.nodes}}" />
+                    <text wx:if="{{item.streaming}}" class="cursor"></text>
+                  </block>
+                </view>
+
+                <view wx:if="{{item.role==='user'}}" class="tail tail-right"></view>
+              </view>
+              <view class="qa-time">{{item.time}}</view>
+            </view>
+          </block>
+
+          <!-- 状态提示 -->
+          <view wx:if="{{status==='thinking' || status==='answering'}}" id="msg-status" class="qa-item">
+            <view class="qa-bubble">
+              <block wx:if="{{status==='thinking'}}">
+                正在思考<text class="dot">.</text><text class="dot">.</text><text class="dot">.</text>
+              </block>
+              <block wx:if="{{status==='answering'}}">
+                正在回答<text class="dot">.</text><text class="dot">.</text><text class="dot">.</text>
+              </block>
+            </view>
+          </view>
+        </scroll-view>
+
+        <!-- 输入 -->
+        <view class="qa-inputbar">
+          <input class="qa-input" placeholder="输入您的问题…" value="{{inputValue}}" bindinput="onInput" confirm-type="send" bindconfirm="onConfirm" disabled="{{status==='thinking' || status==='answering'}}" />
+          <view class="qa-sendbtn {{(!canSend) ? 'disabled' : ''}}" bindtap="onSendTap">
+            <image src="/assets/icon/send.png" class="send-icon" mode="aspectFit" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

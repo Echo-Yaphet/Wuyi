@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/books/index",
+    "pages/bookRead/index",
+    "pages/knowledgeGraph/index",
+    "pages/profile/index",
+    "pages/profileEdit/index",
+    "pages/history/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "吴门医派",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f9f9f9"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#B27330",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "assets/tab/home.png",
+        "selectedIconPath": "assets/tab/home-active.png"
+      },
+      {
+        "pagePath": "pages/books/index",
+        "text": "古籍",
+        "iconPath": "assets/tab/book.png",
+        "selectedIconPath": "assets/tab/book-active.png"
+      },
+      {
+        "pagePath": "pages/knowledgeGraph/index",
+        "text": "知识",
+        "iconPath": "assets/tab/knowledgeGraph.png",
+        "selectedIconPath": "assets/tab/knowledgeGraph-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "assets/tab/profile.png",
+        "selectedIconPath": "assets/tab/profile-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

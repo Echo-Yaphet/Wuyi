@@ -1,0 +1,37 @@
+.history-page {
+  padding: 20rpx;
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+
+.history-item {
+  padding: 24rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+
+.book-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 10rpx;
+}
+
+.read-time {
+  font-size: 26rpx;
+  color: #888;
+}
+
+.empty {
+  text-align: center;
+  margin-top: 200rpx;
+  color: #bbb;
+  font-size: 28rpx;
+}

@@ -1,0 +1,56 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <image src="/assets/icon/search.png" class="search-icon" />
+    <input placeholder="搜索古籍名称、作者..." />
+  </view>
+
+  <!-- 筛选卡片 -->
+  <view class="filter-card">
+    <view class="filter-group">
+      <view class="filter-title">朝代</view>
+      <view class="filter-tags">
+        <view
+          class="tag {{selectedDynasty===item ? 'active' : ''}}"
+          wx:for="{{dynastyList}}"
+          wx:key="item"
+          data-value="{{item}}"
+          bindtap="selectDynasty"
+        >{{item}}</view>
+      </view>
+    </view>
+    <view class="filter-group">
+      <view class="filter-title">分类</view>
+      <view class="filter-tags">
+        <view
+          class="tag {{selectedType===item ? 'active' : ''}}"
+          wx:for="{{typeList}}"
+          wx:key="item"
+          data-value="{{item}}"
+          bindtap="selectType"
+        >{{item}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 古籍宫格列表 -->
+  <view class="book-list">
+    <!-- 关键：给卡片加 bindtap + data-id 实现跳转 -->
+    <view class="book-card"
+          wx:for="{{filteredBooks}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="openBook"
+          hover-class="press">
+      <image class="book-img" src="{{item.img}}" mode="aspectFill" />
+      <view class="book-info">
+        <view class="book-title">{{item.title}}</view>
+        <view class="book-author">{{item.author}}</view>
+        <view class="book-meta">
+          <view class="meta-tag">{{item.dynasty}}</view>
+          <view class="meta-year">{{item.year}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

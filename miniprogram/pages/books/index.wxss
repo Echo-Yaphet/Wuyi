@@ -1,0 +1,108 @@
+.container {
+  background: #faf6ed;
+  padding: 20rpx;
+}
+.search-bar {
+  background: #f5efe0;
+  border-radius: 12rpx;
+  padding: 18rpx 24rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.search-bar input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 28rpx;
+  color: #666;
+}
+.search-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 12rpx;
+}
+.filter-card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 32rpx 24rpx;
+  margin-bottom: 28rpx;
+}
+.filter-group {
+  margin-bottom: 16rpx;
+}
+.filter-title {
+  font-size: 26rpx;
+  color: #444;
+  margin-bottom: 10rpx;
+}
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18rpx 20rpx;
+}
+.tag {
+  padding: 10rpx 28rpx;
+  background: #f3f0ed;
+  border-radius: 26rpx;
+  font-size: 24rpx;
+  color: #8c7153;
+  margin-bottom: 8rpx;
+}
+.tag.active {
+  background: #8c7153;
+  color: #fff;
+}
+.book-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32rpx 20rpx;
+}
+.book-card {
+  background: #fff;
+  border-radius: 22rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(100,82,56,0.04);
+  margin-bottom: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.book-img {
+  width: 100%;
+  height: 270rpx;
+  object-fit: cover;
+  background: #eee;
+}
+.book-info {
+  padding: 22rpx 18rpx 16rpx;
+}
+.book-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 6rpx;
+  color: #222;
+}
+.book-author {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+}
+.book-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.meta-tag {
+  background: #f6eee3;
+  color: #8c7153;
+  padding: 6rpx 18rpx;
+  font-size: 22rpx;
+  border-radius: 12rpx;
+}
+.meta-year {
+  font-size: 22rpx;
+  color: #b39c7e;
+}
+
+/* 点击按压态 */
+.press { transform: scale(0.98); }

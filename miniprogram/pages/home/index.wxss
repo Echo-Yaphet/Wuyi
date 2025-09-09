@@ -1,0 +1,131 @@
+.container {
+  padding: 20rpx;
+  background-color: #F7F3E8;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+.search-bar input {
+  flex: 1;
+  font-size: 28rpx;
+  border: none;
+  background: transparent;
+  color: #555;
+}
+.scan-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 16rpx;
+}
+
+/* 中医古籍模块 */
+.book-section {
+  display: block;
+  margin-top: 16rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+  position: relative;
+}
+.book-title {
+  padding: 12rpx 16rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.book-banner {
+  width: 100%;
+  height: 160px;
+  border-radius: 8rpx;
+}
+.banner-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+}
+.book-text {
+  position: absolute;
+  bottom: 20rpx;
+  left: 20rpx;
+  color: white;
+}
+.book-text .title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.book-text .desc {
+  font-size: 24rpx;
+  margin-top: 4rpx;
+}
+
+/* 功能宫格 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24rpx;
+  margin: 40rpx 0;
+}
+.grid-item {
+  background: #ffffff;
+  padding: 32rpx 0;
+  border-radius: 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.grid-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 12rpx;
+}
+.grid-text {
+  font-size: 26rpx;
+  color: #333;
+}
+
+/* === 单行功能宫格 === */
+.grid-row{
+  display:flex;
+  gap:24rpx;
+  padding: 18rpx;
+}
+.grid-row .grid-item{
+  flex:1;
+  background:#fff;
+  border-radius: 24rpx;
+  padding: 28rpx 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 6rpx 16rpx rgba(0,0,0,0.04);
+}
+.grid-item-hover{ opacity:.9; }
+.grid-icon{ width: 72rpx; height:72rpx; margin-bottom: 12rpx; }
+.grid-text{ font-size: 26rpx; color:#6b3f1c; }
+
+/* === 大家都在看 === */
+.hot-section{ margin: 12rpx 18rpx 0 18rpx; }
+.hot-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom: 12rpx; }
+.hot-title{ font-size: 30rpx; font-weight: 600; color:#2d1b0f; }
+.hot-list{ white-space:nowrap; }
+.hot-card{
+  display:inline-flex;
+  flex-direction:column;
+  width: 240rpx;
+  margin-right: 18rpx;
+  background:#fff;
+  border-radius: 20rpx;
+  overflow:hidden;
+  box-shadow: 0 6rpx 16rpx rgba(0,0,0,0.04);
+}
+.hot-cover{ width:100%; height: 280rpx; display:block; }
+.hot-info{ padding: 12rpx 14rpx 16rpx 14rpx; }
+.hot-name{ font-size: 26rpx; color:#3a2c14; display:block; margin-bottom: 6rpx; }
+.hot-meta{ font-size: 22rpx; color:#9a7b5a; }

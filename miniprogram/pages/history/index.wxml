@@ -1,0 +1,16 @@
+<view class="history-page">
+  <view class="title">我的浏览历史</view>
+
+  <block wx:if="{{historyList.length > 0}}">
+    <block wx:for="{{historyList}}" wx:key="id">
+      <view class="history-item" bindtap="goToBook" data-id="{{item.id}}">
+        <view class="book-title">{{item.title}}</view>
+        <view class="read-time">最近阅读：{{item.readTime}}</view>
+      </view>
+    </block>
+  </block>
+
+  <block wx:else>
+    <view class="empty">暂无浏览记录</view>
+  </block>
+</view>

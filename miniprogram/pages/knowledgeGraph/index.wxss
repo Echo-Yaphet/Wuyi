@@ -1,0 +1,415 @@
+.container {
+  background: #faf6ed;
+  padding: 18rpx;
+}
+
+/* ===== 知识图谱区 ===== */
+.kg-section {
+  background: #fff;
+  border-radius: 26rpx;
+  margin-bottom: 38rpx;
+  padding-bottom: 24rpx;
+}
+
+.kg-header {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 28rpx 0 28rpx;
+}
+
+.kg-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #272019;
+}
+
+.kg-wrap {
+  position: relative;
+  margin-top: 12rpx;
+}
+
+.kg-fab {
+  position: absolute;
+  right: 16rpx;
+  top: 16rpx;
+  z-index: 20;
+  display: flex;
+  gap: 16rpx;
+}
+
+.kg-fab-item {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fab-hover {
+  opacity: .8;
+}
+
+.kg-icon {
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.kg-area {
+  position: relative;
+  width: 100%;
+  height: 520rpx;
+  overflow: hidden;
+  border-radius: 20rpx;
+}
+
+.kg-view {
+  width: 100%;
+  height: 100%;
+}
+
+ec-canvas,
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ===== 聊天区 ===== */
+.qa-layout {
+  display: flex;
+  gap: 18rpx;
+  padding: 0 18rpx 18rpx 18rpx;
+}
+
+.qa-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.qa-section {
+  background: #fff;
+  border-radius: 26rpx;
+  margin-top: 18rpx;
+  padding-bottom: 24rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.qa-title {
+  position: relative;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #392a12;
+  margin-bottom: 8rpx;
+  padding-left: 24rpx;
+  padding-top: 26rpx;
+}
+
+.qa-menu {
+  position: absolute;
+  right: 24rpx;
+  top: 20rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.qa-list {
+  padding: 8rpx 18rpx 0 6rpx;
+  flex: 1;
+  max-height: none;
+  box-sizing: border-box;
+}
+
+.qa-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 12rpx 0;
+}
+
+.qa-item.user {
+  align-items: flex-end;
+}
+
+.qa-bubble-wrap {
+  display: inline-flex;
+  align-items: flex-start;
+  max-width: 86vw;
+  gap: 0;
+}
+
+.qa-bubble {
+  display: inline-flex;
+  align-items: flex-start;
+  padding: 2rpx 20rpx 10rpx 10rpx;
+  border-radius: 18rpx;
+  line-height: 1.38;
+  font-size: 26rpx;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.qa-bubble.ai {
+  background: #f2f2f2;
+  color: #2b2b2b;
+  border: 2rpx solid rgba(0, 0, 0, .04);
+}
+
+.qa-bubble.user {
+  background: #8c5721;
+  color: #fff;
+  border: none;
+}
+
+.qa-text {
+  display: inline-block;
+  white-space: pre-line;
+  line-height: 1.38;
+  transform: translateY(-3rpx);
+}
+
+.qa-time {
+  font-size: 20rpx;
+  color: #bfa074;
+  margin: 6rpx 0;
+  align-self: center;
+}
+
+/* 光标动画 */
+.cursor {
+  display: inline-block;
+  width: 10rpx;
+  height: 18rpx;
+  margin-left: 6rpx;
+  background: rgba(0, 0, 0, 0.25);
+  vertical-align: -2rpx;
+  animation: caret 1s step-end infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* 输入区 */
+.qa-inputbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f7f5f3;
+  margin: 30rpx 18rpx 0 18rpx;
+  padding-left: 24rpx;
+  padding-right: 80rpx;
+  border-radius: 32rpx;
+  border: 2rpx solid #e7dfd5;
+  height: 80rpx;
+}
+
+.qa-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 26rpx;
+  color: #865c30;
+}
+
+.qa-sendbtn {
+  position: absolute;
+  right: 16rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60rpx;
+  height: 60rpx;
+  background: #8c5721;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2rpx 8rpx rgba(120, 80, 38, 0.08);
+}
+
+.qa-sendbtn.disabled {
+  opacity: .5;
+}
+
+.send-icon {
+  width: 36rpx;
+  height: 36rpx;
+  display: block;
+}
+
+/* 点点动画 */
+.dot {
+  animation: blink 1.2s infinite;
+  display: inline-block;
+}
+
+.dot:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: .4s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: .2
+  }
+
+  50% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: .2
+  }
+}
+
+/* ===== 覆盖式侧栏（抽屉） ===== */
+.sider-overlay {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .45);
+}
+
+.sider-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 72%;
+  max-width: 560rpx;
+  background: #fff;
+  border-top-right-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.sider-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 16rpx 8rpx;
+}
+
+.sider-title {
+  font-size: 26rpx;
+  color: #6e5432;
+}
+
+.sider-actions {
+  display: flex;
+  gap: 10rpx;
+}
+
+.sider-btn {
+  padding: 6rpx 14rpx;
+  background: #8c5721;
+  color: #fff;
+  border-radius: 16rpx;
+  font-size: 22rpx;
+}
+
+.sider-btn.ghost {
+  background: #f2eadf;
+  color: #6e5432;
+}
+
+.sider-scroll {
+  flex: 1;
+  overflow: hidden;
+  padding: 12rpx;
+}
+
+.sider-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14rpx 12rpx;
+  margin-bottom: 10rpx;
+  background: #fff;
+  border-radius: 14rpx;
+  border: 2rpx solid #f0e7dc;
+}
+
+.sider-item.active {
+  border-color: #caa06e;
+  background: #fff7ec;
+}
+
+.sider-name {
+  max-width: 130rpx;
+  font-size: 24rpx;
+  color: #4b3a21;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sider-tools {
+  display: flex;
+  gap: 10rpx;
+}
+
+.tool {
+  padding: 2rpx 10rpx;
+  background: #f2eadf;
+  border-radius: 12rpx;
+  font-size: 22rpx;
+  color: #6e5432;
+}
+
+.tool.danger {
+  color: #8c2a21;
+  background: #fbeceb;
+}
+
+/* 使页面上下两块更贴屏 */
+page,
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.kg-section {
+  flex: 0 0 auto;
+}
+
+.qa-section {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ======= 新增/补充：布局满屏 ======= */
+page, .container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 让上下两块填满屏幕：上固定视觉高度/下自适应 */
+.kg-section { flex: 0 0 auto; }           /* 仍按你的内容高度渲染 */
+.qa-section { flex: 1 1 auto; display: flex; flex-direction: column; }
+/* 让聊天主区垂直填满，列表自适应高度 */
+.qa-layout { flex: 1 1 auto; display: flex; padding: 0 18rpx 18rpx 18rpx; }
+.qa-main { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.qa-list { flex: 1; max-height: none; /* 关键：去掉之前的固定 max-height */ }

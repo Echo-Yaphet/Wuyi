@@ -1,0 +1,36 @@
+<view class="edit-page">
+  <view class="top">
+    <view class="avatar-wrap">
+      <image class="avatar" src="{{form.avatar || '/assets/icon/avatar.png'}}" mode="aspectFill"/>
+      <button class="avatar-btn" size="mini" bindtap="chooseAvatar">更换头像</button>
+    </view>
+  </view>
+
+  <view class="form">
+    <view class="form-item">
+      <text class="label">姓名</text>
+      <input class="input" placeholder="请输入姓名" value="{{form.name}}" data-key="name" bindinput="onInput"/>
+    </view>
+
+    <view class="form-item">
+      <text class="label">邮箱</text>
+      <input class="input" placeholder="name@example.com" value="{{form.email}}" data-key="email" bindinput="onInput"/>
+    </view>
+
+    <view class="form-item">
+      <text class="label">电话</text>
+      <input class="input" placeholder="可选" value="{{form.phone}}" data-key="phone" bindinput="onInput"/>
+    </view>
+
+    <view class="form-item textarea">
+      <text class="label">简介</text>
+      <textarea class="textarea" placeholder="一句话介绍自己或研究方向…" value="{{form.bio}}" data-key="bio" bindinput="onInput"></textarea>
+    </view>
+
+  </view>
+
+  <view class="bottom-bar">
+    <view class="btn ghost" bindtap="cancel">取消</view>
+    <view class="btn primary {{!canSave ? 'disabled':''}}" bindtap="save">保存</view>
+  </view>
+</view>

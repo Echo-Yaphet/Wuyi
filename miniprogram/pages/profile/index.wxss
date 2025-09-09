@@ -1,0 +1,138 @@
+.profile-page {
+  background: #fcf6e7;
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+.profile-header {
+  background: #8c5721;
+  padding: 44rpx 32rpx 28rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  border: 6rpx solid #fff;
+  background: #fff;
+}
+
+.profile-main {
+  margin-left: 32rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-name {
+  color: #fff;
+  font-size: 38rpx;
+  font-weight: 700;
+}
+
+.profile-title {
+  color: #f4e7d2;
+  font-size: 26rpx;
+  margin-top: 8rpx;
+}
+
+.header-edit {
+  position: absolute;
+  right: 24rpx;
+  top: 24rpx;
+  background: rgba(255, 255, 255, .15);
+  color: #fff;
+  border-radius: 20rpx;
+  padding: 10rpx 22rpx;
+  font-size: 26rpx;
+}
+
+.menu-list {
+  margin: 24rpx;
+  background: #fff;
+  border-radius: 22rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 24rpx rgba(140, 87, 33, 0.06);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 36rpx 22rpx 36rpx 32rpx;
+  border-bottom: 1rpx solid #f1e4d0;
+  font-size: 30rpx;
+  color: #54320e;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 22rpx;
+}
+
+.menu-arrow {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: auto;
+}
+
+.achievement-section {
+  margin: 28rpx 0 0 0;
+  padding: 0 16rpx;
+}
+
+.ach-title {
+  font-size: 28rpx;
+  color: #3e270f;
+  font-weight: 700;
+  margin-left: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.achievement-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 24rpx;
+  padding: 0 6rpx;
+}
+
+.achievement-item {
+  background: #fff;
+  flex: 1;
+  border-radius: 28rpx;
+  box-shadow: 0 2rpx 12rpx rgba(140, 87, 33, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 38rpx 0 22rpx;
+}
+
+.achievement-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-bottom: 16rpx;
+}
+
+.achievement-label {
+  font-size: 24rpx;
+  color: #54320e;
+}
+
+.logout-btn {
+  margin: 56rpx 40rpx 32rpx;
+  border-radius: 18rpx;
+  background: #fff;
+  color: #ee3535;
+  font-size: 32rpx;
+  font-weight: 700;
+  border: none;
+  padding: 28rpx 0;
+  box-shadow: 0 2rpx 12rpx rgba(140, 87, 33, 0.06);
+}
